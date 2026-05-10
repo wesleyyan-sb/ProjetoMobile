@@ -49,44 +49,43 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('EstacionaAí', style: Theme.of(context).textTheme.displayLarge),
-            const Text('Bem vindo! Crie uma conta ou faça login para continuar.'),
-            ElevatedButton(onPressed: null, child: Text("Criar conta")),
-            Column(
-              children: [
-                Divider(
-                  height: 20,
-                  thickness: 2,
-                  indent: 10,
-                  endIndent: 10,
-                  color: const Color.fromARGB(255, 255, 255, 255),
-                ),
-              ],
+  child: Column(
+    mainAxisAlignment: MainAxisAlignment.start,
+    children: [
+      Text('EstacionaAí', style: Theme.of(context).textTheme.displayLarge),
+      const Text('Bem vindo! Crie uma conta ou faça login para continuar.'),
+      ElevatedButton(onPressed: null, child: Text("Criar conta")),
+      Divider(
+        height: 20,
+        thickness: 2,
+        indent: 10,
+        endIndent: 10,
+        color: Colors.white,
+      ),
+      ElevatedButton(onPressed: null, child: Text("Fazer login")),
+      const Text('Nossas unidades:'),
+      
+      Expanded(
+        child: ListView(
+          children: const [
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text("São Paulo"),
             ),
-            ElevatedButton(onPressed: null, child: Text("Fazer login")),
-            const Text('Nossas unidades:'),
-            ListView(
-              children: const[
-                ListTile(
-                  leading: Icon(Icons.person),
-                  title: Text("São Paulo"),
-                ),
-                 ListTile(
-                  leading: Icon(Icons.person),
-                  title: Text("Rio do Sul"),
-                ),
-                                ListTile(
-                  leading: Icon(Icons.person),
-                  title: Text("João Pessoa"),
-                ),               
-              ],
-            )
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text("Rio do Sul"),
+            ),
+            ListTile(
+              leading: Icon(Icons.person),
+              title: Text("João Pessoa"),
+            ),
           ],
         ),
       ),
+    ],
+  ),
+),
       
       
     );
