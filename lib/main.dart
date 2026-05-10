@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 void main() {
   runApp(const MyApp());
@@ -54,7 +55,15 @@ class _MyHomePageState extends State<MyHomePage> {
     children: [
       Text('EstacionaAí', style: Theme.of(context).textTheme.displayLarge),
       const Text('Bem vindo! Crie uma conta ou faça login para continuar.'),
-      ElevatedButton(onPressed: null, child: Text("Criar conta")),
+      ElevatedButton(onPressed: () {
+
+        ScaffoldMessenger.of(context).showSnackBar(
+  SnackBar(
+    content: Text("Apenas teste!"),
+    duration: Duration(seconds: 2),
+  ),
+);
+      }, child: Text("Criar conta")),
       Divider(
         height: 20,
         thickness: 2,
@@ -62,7 +71,16 @@ class _MyHomePageState extends State<MyHomePage> {
         endIndent: 10,
         color: Colors.white,
       ),
-      ElevatedButton(onPressed: null, child: Text("Fazer login")),
+      ElevatedButton(onPressed: () {
+
+
+        ScaffoldMessenger.of(context).showSnackBar(
+  SnackBar(
+    content: Text("Apenas teste!"),
+    duration: Duration(seconds: 2),
+  ),
+);
+      }, child: Text("Fazer login")),
       const Text('Nossas unidades:'),
       
       Expanded(
