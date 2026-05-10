@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 void main() {
   runApp(const MyApp());
@@ -102,10 +101,18 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
     ],
+    
   ),
+  
 ),
-      
-      
+  bottomNavigationBar: Container(
+    padding: EdgeInsets.all(16),
+    color: Colors.grey[200],
+    child: Text(
+      "© 2026 EstacionaAí",
+      textAlign: TextAlign.center,
+    ),
+  )
     );
     
   }
