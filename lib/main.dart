@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       home: const MyHomePage(title: 'EstacionaAí'),
     );
   }
-}
+} 
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
@@ -55,6 +55,25 @@ class _MyHomePageState extends State<MyHomePage> {
 
         title: Text(widget.title),
       ),
+        drawer: Drawer(
+    child: ListView(
+      children: [
+        DrawerHeader(
+          child: Text("Menu"),
+        ),
+        ListTile(
+          leading: Icon(Icons.home),
+          title: Text("Início"),
+          onTap: () {},
+        ),
+        ListTile(
+          leading: Icon(Icons.settings),
+          title: Text("Configurações"),
+          onTap: () {},
+        ),
+      ],
+    ),
+  ),
       body: Center(
   child: Column(
     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -72,8 +91,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
         ScaffoldMessenger.of(context).showSnackBar(
   SnackBar(
-    content: Text("Apenas teste!"),
-    duration: Duration(seconds: 2),
+    content: Text("Apenas teste!"), 
+  duration: Duration(seconds: 2),
   ),
 );
       }, child: Text("Criar conta")),
@@ -112,15 +131,18 @@ class _MyHomePageState extends State<MyHomePage> {
               leading: Icon(Icons.person),
               title: Text("João Pessoa"),
             ),
+            Padding(
+              padding: EdgeInsets.all(16.0), //preciso rever ainda
+              child: Text(
+                'A EstacionaAí é uma empresa fundada em Rio do Sul, que disponibiliza estacionamentos nas principais cidades do Brasil com eficiencia e responsabilidade.',
+                textAlign: TextAlign.center,
+              ),
+            ),
           ],
         ),
-        
       ),
-      const Text('A EstacionaAí é uma empresa fundada em Rio do Sul, que disponibiliza estacionamentos nas principais cidades do Brasil com eficiencia e responsabilidade.'),
     ],
-    
   ),
-  
 ),
   bottomNavigationBar: Container(
     padding: EdgeInsets.all(16),
