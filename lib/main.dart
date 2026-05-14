@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'config.dart';
 
 void main() {
   runApp(const MyApp());
@@ -69,7 +70,13 @@ class _MyHomePageState extends State<MyHomePage> {
         ListTile(
           leading: Icon(Icons.settings),
           title: Text("Configurações"),
-          onTap: () {},
+          onTap: () {
+            Navigator.pop(context); 
+            Navigator.push( //trocar tela (empilhar)
+              context,
+              MaterialPageRoute(builder: (context) => const SettingsPage()),
+            );
+          },
         ),
       ],
     ),
