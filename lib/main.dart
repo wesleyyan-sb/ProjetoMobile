@@ -19,7 +19,6 @@ class MyApp extends StatelessWidget {
     );
   }
 } 
-
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
@@ -141,10 +140,10 @@ class _MyHomePageState extends State<MyHomePage> {
             Padding(
               padding: EdgeInsets.all(16.0), //preciso rever ainda
               child: Text(
-                'A EstacionaAí é uma empresa fundada em Rio do Sul, que disponibiliza estacionamentos nas principais cidades do Brasil com eficiencia e responsabilidade.',
-                textAlign: TextAlign.center,
-              ),
-            ),
+    '          A EstacionaAí é uma empresa fundada em Rio do Sul, dedicada a oferecer soluções modernas e acessíveis de estacionamento nas principais cidades do Brasil. Com foco em eficiência, praticidade e responsabilidade, buscamos facilitar o dia a dia de motoristas, conectando pessoas a vagas de forma rápida e segura. Nossa missão é transformar a experiência de estacionar, tornando-a mais simples, confiável e inteligente, sempre valorizando a qualidade do serviço e a satisfação dos nossos usuários.',
+              textAlign: TextAlign.center,
+  ),
+),
           ],
         ),
       ),

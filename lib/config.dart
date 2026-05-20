@@ -10,10 +10,22 @@ class SettingsPage extends StatelessWidget {
         title: const Text("Configurações"),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
-      body: const Center(
-        child: Text(
-          "Em desenvolvimento",
-          style: TextStyle(fontSize: 20),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text("Perfil"),
+            const Text("Nome: Usuário"),
+            const ElevatedButton(onPressed: null, child: Text("Editar Perfil")),
+            const SizedBox(height: 20),
+            const Text("Notificações"),
+            const ElevatedButton(onPressed: null, child: Text("Ativar Notificações")),
+            const SizedBox(height: 20),
+            const Text("Sobre"),
+            const Text("Versão 1.0.0"),
+            const ElevatedButton(onPressed: null, child: Text("Ver Termos")),
+          ],
         ),
       ),
     );
