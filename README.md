@@ -1,16 +1,12 @@
 # EstacionaAí
 
-Este é um projeto de aplicativo desenvolvido em Flutter para a disciplina de Programação Mobile.
+Projeto de aplicativo feito em Flutter para a disciplina de Programação Mobile.
+O EstacionaAí é um protótipo de app para ajudar motoristas a encontrar e reservar vagas de estacionamento, principalmente em cidades maiores.
 
-## Sobre o App
-O EstacionaAí é um protótipo de aplicativo para busca e reserva de vagas de estacionamento. O objetivo é facilitar a vida do motorista que precisa encontrar um lugar seguro para deixar seu veículo nas grandes cidades.
+## O que já tem
 
-## Funcionalidades atuais
-- Tela inicial com busca de unidades.
-- Menu lateral para navegação.
-- Tela de configurações (perfil e preferências).
-- Informações sobre a empresa.
-
-## Desenvolvedor
-- Aluno: Wesley Yan
-- Data: Junho de 2026
+* Tela inicial com busca de vagas
+* Menu
+* Tela de configurações (só visual, nada funcional)
+* Página com informações sobre o app
+* Login e conta (em breve)
