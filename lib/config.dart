@@ -8,25 +8,33 @@ class SettingsPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Configurações"),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        backgroundColor: Colors.red,
+        foregroundColor: Colors.white,
       ),
-      body: Padding(
+      body: ListView(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text("Perfil"),
-            const Text("Nome: Usuário"),
-            const ElevatedButton(onPressed: null, child: Text("Editar Perfil")),
-            const SizedBox(height: 20),
-            const Text("Notificações"),
-            const ElevatedButton(onPressed: null, child: Text("Ativar Notificações")),
-            const SizedBox(height: 20),
-            const Text("Sobre"),
-            const Text("Versão 1.0.0"),
-            const ElevatedButton(onPressed: null, child: Text("Ver Termos")),
-          ],
-        ),
+        children: [
+          const Text("Perfil", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+          const ListTile(
+            leading: Icon(Icons.person),
+            title: Text("Usuário"),
+            subtitle: Text("usuario@email.com"),
+          ),
+          ElevatedButton(onPressed: () {}, child: const Text("Editar Perfil")),
+          const SizedBox(height: 20),
+          const Text("Preferências", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+          SwitchListTile(
+            title: const Text("Notificações"),
+            value: true,
+            onChanged: (bool value) {},
+          ),
+          const SizedBox(height: 20),
+          const Text("Sobre", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+          const ListTile(
+            title: Text("Versão"),
+            trailing: Text("1.0.0"),
+          ),
+        ],
       ),
     );
   }
