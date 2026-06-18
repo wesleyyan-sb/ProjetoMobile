@@ -7,6 +7,8 @@ O EstacionaAí é um protótipo de app para ajudar motoristas a encontrar e rese
 
 * Tela inicial com busca de vagas
 * Menu
-* Tela de configurações (só visual, nada funcional)
+* Tela de configurações
 * Página com informações sobre o app
-* Login e conta (em breve)
+* Login e Conta
+* Calculadora de Preços (Novo)
+* Verificação de Vagas (Novo)
