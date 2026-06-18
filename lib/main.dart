@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'config.dart';
-import 'login_page.dart';
-import 'register_page.dart';
+import 'ajustes.dart';
+import 'entrar.dart';
+import 'criarconta.dart';
+import 'calculo.dart';
+import 'disponibilidade.dart';
 
 void main() {
   runApp(const MyApp());
@@ -56,11 +58,27 @@ class _MyHomePageState extends State<MyHomePage> {
               onTap: () => Navigator.pop(context),
             ),
             ListTile(
+              leading: const Icon(Icons.calculate),
+              title: const Text("Calculadora"),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const Calculo()));
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.directions_car),
+              title: const Text("Vagas"),
+              onTap: () {
+                Navigator.pop(context);
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const Disponibilidade()));
+              },
+            ),
+            ListTile(
               leading: const Icon(Icons.settings),
               title: const Text("Configurações"),
               onTap: () {
                 Navigator.pop(context);
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const SettingsPage()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const Ajustes()));
               },
             ),
           ],
@@ -87,14 +105,14 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const RegisterPage()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const CriarConta()));
                   },
                   child: const Text("Conta"),
                 ),
                 const SizedBox(width: 10),
                 ElevatedButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginPage()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const Entrar()));
                   },
                   child: const Text("Login"),
                 ),
