@@ -15,9 +15,16 @@ Este arquivo detalha todas as alterações realizadas para cumprir os requisitos
   - **Como faz:** Realiza uma subtração simples (`total - ocupadas`). Inclui um botão que simula a entrada de um novo veículo, incrementando o contador e atualizando a tela em tempo real com `setState`.
   - **Por que:** Segunda tela obrigatória. Demonstra processamento lógico de dados e interação com o estado da aplicação.
 
+### Adicionado
+- **Animações Básicas na Home (`lib/main.dart`)**
+  - **Animação 1 (Fade-in):** Utilização do widget `AnimatedOpacity` para fazer com que o título e a mensagem de boas-vindas apareçam suavemente (efeito de transparência) ao abrir o app.
+  - **Animação 2 (Deslocamento):** Utilização do widget `AnimatedPadding` no campo de busca para criar um efeito de entrada suave, onde o campo "escorrega" de cima para baixo até sua posição final.
+  - **Por que:** Para cumprir o requisito de "Adicionar animações". Foram escolhidas animações implícitas por serem simples de implementar e fáceis de explicar tecnicamente.
+
 ### Alterado
 - **Renomeação Geral de Arquivos e Classes**
   - Os arquivos foram renomeados para termos mais simples e naturais em português (ex: `login_page.dart` virou `entrar.dart`).
+  - O arquivo `ajustes.dart` foi renomeado para `config.dart` para manter um padrão técnico comum.
   - As classes internas foram simplificadas para facilitar a explicação do código (ex: `RegisterPage` virou `CriarConta`).
   - **Por que:** Para deixar o projeto com uma estrutura mais limpa, informal e menos "robótica", facilitando a apresentação para o professor.
 

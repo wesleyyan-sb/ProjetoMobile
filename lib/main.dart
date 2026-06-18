@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'ajustes.dart';
+import 'config.dart';
 import 'entrar.dart';
 import 'criarconta.dart';
 import 'calculo.dart';
@@ -36,6 +36,22 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   final TextEditingController _searchController = TextEditingController();
+  
+  // Variáveis para as animações
+  double _opacidade = 0.0;
+  double _espacamentoSuperior = 50.0;
+
+  @override
+  void initState() {
+    super.initState();
+    // Inicia as animações assim que a tela abre
+    Future.delayed(const Duration(milliseconds: 500), () {
+      setState(() {
+        _opacidade = 1.0;
+        _espacamentoSuperior = 20.0;
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
               title: const Text("Configurações"),
               onTap: () {
                 Navigator.pop(context);
-                Navigator.push(context, MaterialPageRoute(builder: (context) => const Ajustes()));
+                Navigator.push(context, MaterialPageRoute(builder: (context) => const Config()));
               },
             ),
           ],
@@ -88,17 +104,31 @@ class _MyHomePageState extends State<MyHomePage> {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            TextField(
-              controller: _searchController,
-              decoration: const InputDecoration(
-                labelText: 'Buscar unidade...',
-                border: OutlineInputBorder(),
-                prefixIcon: Icon(Icons.search),
+            // ANIMAÇÃO 1: Deslocamento suave (AnimatedPadding)
+            AnimatedPadding(
+              duration: const Duration(seconds: 1),
+              padding: EdgeInsets.only(top: _espacamentoSuperior),
+              child: TextField(
+                controller: _searchController,
+                decoration: const InputDecoration(
+                  labelText: 'Buscar unidade...',
+                  border: OutlineInputBorder(),
+                  prefixIcon: Icon(Icons.search),
+                ),
               ),
             ),
             const SizedBox(height: 20),
-            Text('EstacionaAí', style: Theme.of(context).textTheme.headlineMedium),
-            const Text('Bem vindo! Faça login para continuar.'),
+            // ANIMAÇÃO 2: Aparecimento suave (AnimatedOpacity)
+            AnimatedOpacity(
+              duration: const Duration(seconds: 2),
+              opacity: _opacidade,
+              child: Column(
+                children: [
+                  Text('EstacionaAí', style: Theme.of(context).textTheme.headlineMedium),
+                  const Text('Bem vindo! Faça login para continuar.'),
+                ],
+              ),
+            ),
             const SizedBox(height: 20),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
