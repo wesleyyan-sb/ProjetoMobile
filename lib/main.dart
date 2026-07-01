@@ -39,16 +39,16 @@ class _MyHomePageState extends State<MyHomePage> {
   
 
   double _opacidade = 0.0;
-  double _espacamentoSuperior = 50.0;
+  double _espaca = 50.0;
 
   @override
   void initState() {
     super.initState();
 
-    Future.delayed(const Duration(milliseconds: 500), () {
+    Future.delayed(const Duration(milliseconds: 1500), () {
       setState(() {
         _opacidade = 1.0;
-        _espacamentoSuperior = 20.0;
+        _espaca = 20.0;
       });
     });
   }
@@ -107,7 +107,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
             AnimatedPadding(
               duration: const Duration(seconds: 1),
-              padding: EdgeInsets.only(top: _espacamentoSuperior),
+              padding: EdgeInsets.only(top: _espaca),
               child: TextField(
                 controller: _searchController,
                 decoration: const InputDecoration(

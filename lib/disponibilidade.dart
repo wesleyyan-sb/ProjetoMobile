@@ -17,7 +17,7 @@ class _DisponibilidadeState extends State<Disponibilidade> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Vagas Disponíveis"),
+        title: const Text("Vagas disponíveis"),
         backgroundColor: Colors.red,
         foregroundColor: Colors.white,
       ),
@@ -41,7 +41,7 @@ class _DisponibilidadeState extends State<Disponibilidade> {
                   if (ocupadas < totalVagas) ocupadas++;
                 });
               },
-              child: const Text("Simular Entrada de Veículo"),
+              child: const Text("Simular entrada de veículo"),
             ),
           ],
         ),

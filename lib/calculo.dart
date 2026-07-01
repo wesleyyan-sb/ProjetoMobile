@@ -9,12 +9,12 @@ class Calculo extends StatefulWidget {
 
 class _CalculoState extends State<Calculo> {
   final TextEditingController _hoursController = TextEditingController();
-  double _totalFee = 0.0;
+  double _taxa = 0.0;
 
-  void _calculateFee() {
-    int hours = int.tryParse(_hoursController.text) ?? 0;
+  void calcTaxa() {
+    int horas = int.tryParse(_hoursController.text) ?? 0;
     setState(() {
-      _totalFee = hours * 10.0;
+      _taxa = horas * 10.0;
     });
   }
 
@@ -36,18 +36,18 @@ class _CalculoState extends State<Calculo> {
               controller: _hoursController,
               keyboardType: TextInputType.number,
               decoration: const InputDecoration(
-                labelText: "Quantidade de Horas",
+                labelText: "Quantidade de horas",
                 border: OutlineInputBorder(),
               ),
             ),
             const SizedBox(height: 15),
             ElevatedButton(
-              onPressed: _calculateFee,
+              onPressed: calcTaxa,
               style: ElevatedButton.styleFrom(backgroundColor: Colors.red, foregroundColor: Colors.white),
               child: const Text("Calcular"),
             ),
             const SizedBox(height: 20),
-            ResultadoWidget(total: _totalFee),
+            ResultadoWidget(total: _taxa),
           ],
         ),
       ),
