@@ -17,7 +17,6 @@ class _CalculoState extends State<Calculo> {
       _taxa = horas * 10.0;
     });
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

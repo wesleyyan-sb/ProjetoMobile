@@ -19,6 +19,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.red),
+        secondaryHeaderColor: Colors.redAccent,
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'EstacionaAí'),
