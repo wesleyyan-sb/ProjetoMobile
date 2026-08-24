@@ -36,6 +36,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  bool _carr = true;
   final TextEditingController _searchController = TextEditingController();
   
 
@@ -43,8 +44,17 @@ class _MyHomePageState extends State<MyHomePage> {
   double _espaca = 50.0;
 
   @override
-  void initState() {
+  void initState() { 
+
     super.initState();
+
+    Future.delayed(const Duration(seconds: 4), () {
+  if (!mounted) return;
+
+  setState(() {
+    _carr = false;
+  });
+});
 
     Future.delayed(const Duration(milliseconds: 1500), () {
       setState(() {
@@ -101,9 +111,11 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      body: SingleChildScrollView(
+      body: Stack(
+        children: [
+        SingleChildScrollView(
         padding: const EdgeInsets.all(16.0),
-        child: Column(
+      child: Column(
           children: [
 
             AnimatedPadding(
@@ -164,6 +176,20 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
+        
+
+    if (_carr)
+      Container(
+        color: Colors.white,
+        child: Center(
+          child: Image.asset(
+            "assets/loading.gif",
+            width: 220,
+          ),
+        ),
+      ),
+  ],
+),
       bottomNavigationBar: Container(
         padding: const EdgeInsets.all(8),
         color: Colors.grey[200],

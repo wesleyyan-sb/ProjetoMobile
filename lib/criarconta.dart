@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'usuariostabela.dart';
 
 class CriarConta extends StatelessWidget {
   const CriarConta({super.key});
@@ -10,7 +11,7 @@ class CriarConta extends StatelessWidget {
         title: const Text("Criar Conta"),
         backgroundColor: Colors.red,
         foregroundColor: Colors.white,
-      ),
+      ), 
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(20.0),
         child: Column(
@@ -42,7 +43,12 @@ class CriarConta extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => UsuariosTabela()),
+                  );
+                },
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.red, foregroundColor: Colors.white),
                 child: const Text("Cadastrar"),
               ),

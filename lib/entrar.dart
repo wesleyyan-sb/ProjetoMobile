@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'usuariostabela.dart';
 
 class Entrar extends StatelessWidget {
   const Entrar({super.key});
@@ -36,7 +37,12 @@ class Entrar extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => UsuariosTabela()),
+                  );
+                },
                 style: ElevatedButton.styleFrom(backgroundColor: Colors.red, foregroundColor: Colors.white),
                 child: const Text("Entrar"),
               ),
