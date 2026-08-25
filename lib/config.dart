@@ -9,7 +9,6 @@ class Config extends StatefulWidget {
 }
 
 class _ConfigState extends State<Config> {
-  // Mostra o diálogo para editar o e-mail do usuário logado
   void _mostrarDialogoEditar() {
     final usuario = DatabaseHelper.usuarioLogado;
     if (usuario == null) {
@@ -61,16 +60,15 @@ class _ConfigState extends State<Config> {
                   final novoEmail = controllerEmail.text.trim();
                   await DatabaseHelper.atualizarEmail(usuario['id'], novoEmail);
                   
-                  if (mounted) {
-                    Navigator.pop(context);
-                    setState(() {}); // Atualiza a tela de configurações com o novo email
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text("E-mail atualizado com sucesso!"),
-                        backgroundColor: Colors.green,
-                      ),
-                    );
-                  }
+                  if (!context.mounted) return;
+                  Navigator.pop(context);
+                  setState(() {});
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    const SnackBar(
+                      content: Text("E-mail atualizado com sucesso!"),
+                      backgroundColor: Colors.green,
+                    ),
+                  );
                 }
               },
               style: ElevatedButton.styleFrom(
@@ -85,7 +83,6 @@ class _ConfigState extends State<Config> {
     );
   }
 
-  // Mostra o diálogo para confirmar a restauração do banco de dados ao original
   void _confirmarReset() {
     showDialog(
       context: context,
@@ -103,16 +100,15 @@ class _ConfigState extends State<Config> {
             ElevatedButton(
               onPressed: () async {
                 await DatabaseHelper.resetarBancoDados();
-                if (mounted) {
-                  Navigator.pop(context); // Fecha o diálogo
-                  setState(() {}); // Atualiza a tela de configurações
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    const SnackBar(
-                      content: Text("Banco de dados restaurado ao original!"),
-                      backgroundColor: Colors.green,
-                    ),
-                  );
-                }
+                if (!context.mounted) return;
+                Navigator.pop(context);
+                setState(() {});
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(
+                    content: Text("Banco de dados restaurado ao original!"),
+                    backgroundColor: Colors.green,
+                  ),
+                );
               },
               style: ElevatedButton.styleFrom(
                 backgroundColor: Colors.red,

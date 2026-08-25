@@ -3,7 +3,6 @@ import 'package:sqflite/sqflite.dart' as sql;
 import 'package:path/path.dart' as path;
 
 class DatabaseHelper {
-  // Dados iniciais para simular o banco de dados na Web ou caso ocorra erro no SQLite
   static final List<Map<String, dynamic>> _mockDb = [
     {'id': 1, 'nome': 'João Silva', 'email': 'joao@email.com', 'senha': '123', 'status': 'Ativo'},
     {'id': 2, 'nome': 'Maria Santos', 'email': 'maria@email.com', 'senha': '123', 'status': 'Ativo'},
@@ -12,7 +11,6 @@ class DatabaseHelper {
     {'id': 5, 'nome': 'Carlos Ferreira', 'email': 'carlos@email.com', 'senha': '123', 'status': 'Ativo'},
   ];
 
-  // Armazena a sessão do usuário que efetuou login no momento
   static Map<String, dynamic>? usuarioLogado;
 
   static sql.Database? _database;
@@ -47,7 +45,6 @@ class DatabaseHelper {
           )
         ''');
 
-        // Pre-popula o banco de dados com os usuários padrão
         for (var user in _mockDb) {
           await db.insert('usuarios', {
             'nome': user['nome'],
@@ -60,7 +57,6 @@ class DatabaseHelper {
     );
   }
 
-  // Obter todos os usuários
   static Future<List<Map<String, dynamic>>> getUsuarios() async {
     if (kIsWeb) {
       return List<Map<String, dynamic>>.from(_mockDb);
@@ -72,7 +68,6 @@ class DatabaseHelper {
     return await db.query('usuarios');
   }
 
-  // Criar um novo usuário
   static Future<void> inserirUsuario(String nome, String email, String senha) async {
     final Map<String, dynamic> novoUsuario = {
       'nome': nome,
@@ -97,7 +92,6 @@ class DatabaseHelper {
     }
 
     final id = await db.insert('usuarios', novoUsuario);
-    // Cria uma cópia do map com o id correto gerado pelo banco
     usuarioLogado = {
       'id': id,
       'nome': nome,
@@ -107,7 +101,6 @@ class DatabaseHelper {
     };
   }
 
-  // Realizar Login
   static Future<Map<String, dynamic>?> fazerLogin(String email, String senha) async {
     if (kIsWeb) {
       try {
@@ -145,7 +138,6 @@ class DatabaseHelper {
     return usuarioLogado;
   }
 
-  // Atualizar e-mail do usuário
   static Future<void> atualizarEmail(int id, String novoEmail) async {
     if (kIsWeb) {
       final index = _mockDb.indexWhere((u) => u['id'] == id);
@@ -177,7 +169,6 @@ class DatabaseHelper {
       whereArgs: [id],
     );
 
-    // Atualiza o objeto do usuário logado localmente na memória
     if (usuarioLogado != null && usuarioLogado!['id'] == id) {
       final result = await db.query('usuarios', where: 'id = ?', whereArgs: [id]);
       if (result.isNotEmpty) {
@@ -186,11 +177,9 @@ class DatabaseHelper {
     }
   }
 
-  // Reseta o banco de dados para os valores originais
   static Future<void> resetarBancoDados() async {
     usuarioLogado = null;
 
-    // Reinicia a lista simulada para a Web
     _mockDb.clear();
     _mockDb.addAll([
       {'id': 1, 'nome': 'João Silva', 'email': 'joao@email.com', 'senha': '123', 'status': 'Ativo'},
@@ -205,7 +194,6 @@ class DatabaseHelper {
     final db = await database;
     if (db == null) return;
 
-    // SQLite: recria a tabela para resetar o contador autoincrement de IDs
     await db.execute('DROP TABLE IF EXISTS usuarios');
     await db.execute('''
       CREATE TABLE usuarios(
@@ -217,7 +205,6 @@ class DatabaseHelper {
       )
     ''');
 
-    // Re-insere os registros iniciais
     for (var user in _mockDb) {
       await db.insert('usuarios', {
         'nome': user['nome'],

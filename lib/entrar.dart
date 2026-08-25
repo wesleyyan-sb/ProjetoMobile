@@ -33,7 +33,6 @@ class _EntrarState extends State<Entrar> {
       if (!mounted) return;
 
       if (usuario == null) {
-        // Exibe mensagem caso não encontre a conta
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(
             content: Text("Conta não encontrada! Verifique o e-mail e a senha."),
@@ -41,7 +40,6 @@ class _EntrarState extends State<Entrar> {
           ),
         );
       } else {
-        // Redireciona em caso de sucesso
         Navigator.pushReplacement(
           context,
           MaterialPageRoute(builder: (context) => UsuariosTabela()),

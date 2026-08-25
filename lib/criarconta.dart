@@ -34,7 +34,6 @@ class _CriarContaState extends State<CriarConta> {
 
       if (!mounted) return;
 
-      // Sucesso - exibir SnackBar
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(
           content: Text("Conta criada com sucesso!"),
@@ -42,7 +41,6 @@ class _CriarContaState extends State<CriarConta> {
         ),
       );
 
-      // Redirecionar para a tabela de usuários
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => UsuariosTabela()),

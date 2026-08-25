@@ -103,7 +103,7 @@ class _UsuariosTabelaState extends State<UsuariosTabela> {
                           ),
                         ],
                       );
-                    }).toList(),
+                    }),
                   ],
                 ),
               ),
