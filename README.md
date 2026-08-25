@@ -1,4 +1,4 @@
-<img src="./assets/ifc.png" width="400">
+<img src="./assets/ifc.png" width="200">
 
 # EstacionaAí
 
