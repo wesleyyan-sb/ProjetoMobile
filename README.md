@@ -64,7 +64,7 @@ Certifique-se de que possui o ambiente **Flutter** instalado e configurado no se
 
 1.  Clone este repositório ou navegue até a pasta do projeto:
     ```bash
-    cd ProjetoMobile2
+    cd ProjetoMobile
     ```
 
 2.  Instale os pacotes e dependências adicionadas (`sqflite` e `path`):
